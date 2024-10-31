@@ -1,0 +1,215 @@
+@if($banner)
+<div class="store-header" style="
+    background: url({{ Storage::url($banner->image) }});
+    background-position: center;">
+  <div class="container">
+    <div class="store-header-container">
+      <h1>{{ trans('frontend.store.title') }}</h1>
+    </div>
+  </div>
+</div>
+@endif
+<div>
+  <nav aria-label="breadcrumb" class="store-breadcrumb">
+    <div class="container">
+      <ol class="breadcrumb breadcrumb-2">
+        <li class="breadcrumb-item breadcrumb-2-items"><a href="#">{{ trans('frontend.Home') }}</a></li>
+        <li class="breadcrumb-item breadcrumb-2-items breadcrumb-2-item-active"><a href="/store" style="color:#000000 !important;">{{ trans('frontend.store.title') }}</a></li>
+      </ol>
+    </div>
+  </nav>
+  <div class="container min-vh-100">
+    <div class="row">
+      <div class="col-12">
+        <div id="package-deals-div">
+          <h3 class="dealer-title mt-5 mb-5">{{ trans('frontend.store.package_deals') }} <span> |</span></h3>
+        </div>
+      </div>
+      @if(count($packages) > 0)
+      @foreach($packages as $package)
+      <div class="col-md-4 p-3 mt-3">
+        <a href="/store/package/{{$package->id}}">
+            <img src="{{isset($package->images[0]) ? Storage::url($package->images[0]) : ''}}" width="100%" />
+        </a>
+        <h6 class="text-primary mt-4"></h6>
+        <h5 class="product-name">{{$package->name}} </h5>
+        <h5 class="product-price"><span class="float-right">$ {{$package->price}}</span></h5>
+        <div style="clear:both;"></div>
+        <h6 class="product-desc"> {{$package->description}}</h6>
+        <a href="/store/package/{{$package->id}}" class="pl-0 btn text-primary show-now">{{ trans('frontend.store.shop_now') }} ></a>
+      </div>
+      @endforeach
+      @else
+      <div class="col-md-12">
+        <p class="mt-3 text-center text-muted">{{ trans('frontend.store.no_items') }}</p>
+      </div>
+      @endif
+    </div>
+
+    {{-- FEATURE BIKES --}}
+    <div class="row mt-5">
+      <div class="col-12">
+        <div id="package-deals-div">
+          <h3 class="dealer-title mt-5 mb-5">{{ trans('frontend.store.feature_bikes') }}<span> |</span></h3>
+        </div>
+      </div>
+
+      @if(count($features) > 0)
+      @foreach($features as $feature)
+      <div class="col-md-4 p-3 mt-3">
+        <a href="/store/products/{{ $feature->product_code }}">
+          <img src="{{isset($feature->images[0]) ? Storage::url($feature->images[0]): ''}}" width="100%" />
+        </a>
+        <h6 class="text-primary mt-4">{{ $feature->category->name ?? '' }} - {{ $feature->bike_model->bike_model ?? ''}}</h6>
+        <h5 class="product-name">{{ $feature->product_name }} </h5>
+        <h5 class="product-price"><span class="float-right">$ {{ $feature->price }}</span></h5>
+        <div style="clear:both;"></div>
+        <h6 class="product-desc"> {{$feature->description}}</h6>
+        <a href="/store/products/{{ $feature->product_code }}"
+          class="pl-0 btn text-primary show-now">{{ trans('frontend.store.shop_now') }} ></a>
+      </div>
+      @endforeach
+      @else
+      <div class="col-md-12">
+        <p class="mt-3 text-center text-muted">{{ trans('frontend.store.no_items') }}</p>
+      </div>
+      @endif
+    </div>
+
+    {{-- ALL BIKES --}}
+    <div class="row mt-5">
+      <div class="col-12">
+        <div id="package-deals-div">
+          <h3 class="dealer-title mt-5 mb-5">{{ trans('frontend.store.all_bikes') }} <span> |</span></h3>
+        </div>
+      </div>
+      <div class="col-12">
+        <button class="btn filters px-4" data-toggle="modal" data-target="#filter-div"><i class="fa fa-bars"
+            aria-hidden="true"></i> <span>{{ trans('frontend.store.filter') }}</span></button>
+      </div>
+
+      @if(count($bikes) > 0)
+      @foreach($bikes as $bike)
+      <div class="col-md-4 p-3 mt-3">
+        <a href="/store/products/{{ $bike->product_code }}">
+          <img src="{{isset($bike->images[0]) ? Storage::url($bike->images[0]) : ''}}" width="100%"/>
+        </a>
+        <h6 class="text-primary mt-4">{{ $bike->category->name ?? '' }} - {{ $bike->bike_model->bike_model ?? ''}}</h6>
+        <h5 class="product-name">{{ $bike->product_name }} </h5>
+        <h5 class="product-price"><span class="float-right">$ {{ $bike->price }}</span></h5>
+        <div style="clear: both;"></div>
+        <h6 class="product-desc"> {{$bike->description}}</h6>
+        <a href="/store/products/{{ $bike->product_code }}"
+          class="pl-0 btn text-primary show-now">{{ trans('frontend.store.shop_now') }} ></a>
+      </div>
+      @endforeach
+      <div class="col-md-12 py-5">
+        <nav aria-label="pagination">
+        {{ $bikes->links() }}
+        </nav>
+      </div>
+      @else
+      <div class="col-md-12">
+        <p class="mt-3 text-center text-muted">{{ trans('frontend.store.no_items') }}</p>
+      </div>
+      @endif
+
+    </div>
+
+    {{-- ALL ACCESSORIES --}}
+    <div class="row mt-5">
+      <div class="col-12">
+        <div id="package-deals-div">
+          <h3 class="dealer-title mt-5 mb-5">{{ trans('frontend.store.all_accessories') }} <span> |</span></h3>
+        </div>
+      </div>
+      <div class="col-12">
+        <button class="btn filters px-4" data-toggle="modal" data-target="#filter-div"><i class="fa fa-bars"
+            aria-hidden="true"></i> <span>{{ trans('frontend.store.filter') }}</span></button>
+      </div>
+
+      @if(count($accessories) > 0)
+      @foreach($accessories as $accessory)
+      <div class="col-md-4 p-3 mt-3">
+        <a href="/store/products/{{ $accessory->product_code}}">
+        <a href="/store/products/{{ $accessory->product_code }}">
+          <img src="{{isset($accessory->images[0]) ? Storage::url($accessory->images[0]): ''}}" width="100%" height="250px" />
+        </a>
+        <h6 class="text-primary mt-4">{{ $accessory->category->name ?? ''}} - {{ $accessory->bike_model->bike_model ?? ''}}</h6>
+        <h5 class="product-name">{{ $accessory->product_name }} </h5>
+        <h5 class="product-price"><span class="float-right">$ {{ $accessory->price }}</span></h5>
+        <div style="clear: both;"></div>
+        <h6 class="product-desc"> {{$accessory->description}}</h6>
+        <a href="/store/products/{{ $accessory->product_code }}"
+          class="pl-0 btn text-primary show-now">{{ trans('frontend.store.shop_now') }} ></a>
+      </div>
+      @endforeach
+      <div class="col-md-12 py-5">
+        <nav aria-label="pagination">
+        {{ $accessories->links() }}
+        </nav>
+      </div>
+      @else
+      <div class="col-md-12 mb-5">
+        <p class="mt-3 text-center text-muted mb-5">{{ trans('frontend.store.no_items') }}</p>
+      </div>
+      @endif
+
+    </div>
+  </div>
+  {{-- <div id="filter-div">
+  </div> --}}
+
+  <div id="store-filter"></div>
+  <div id="category-filter">
+    <button class="closeFilter" id="btn-exit">x</button>
+    <form method="get">
+      <div class="input-group col-md-12">
+        <input class="form-control py-2" type="search" id="search-filter" placeholder="{{ trans('frontend.store.search') }}" name="search" value="{{ request()->search }}"/>
+        <span class="input-group-append">
+          <button id="search-filter-btn" class="btn btn-outline-secondary" type="button">
+            <i class="fa fa-search"></i>
+          </button>
+        </span>
+      </div>
+
+      <div id="category" class="mt-5 p-3">
+        <h6 class="section-title-white">{{ trans('frontend.store.category') }}</h6>
+        @foreach($categories as $k => $category)
+        @if($k == 0)
+        <div class="form-group mt-4">
+          @else
+          <div class="form-group mt-3">
+            @endif
+            <label class="form-check-label">{{ $category }}</label>
+            <label class="main float-right">
+              <input type="checkbox" class="form-check-input ml-0 text-right" id="folding-bikes-chk" value="{{ $k }}" name="category[]" @if(!empty(request()->all()['category']) && in_array($k, request()->all()['category'])) checked @endif>
+              <span class="geekmark"></span>
+            </label>
+          </div>
+          @endforeach
+        </div>
+
+        <div id="type" class="mt-5 p-3">
+          <h6 class="section-title-white">{{ trans('frontend.store.type') }}</h6>
+          @foreach($types as $k => $type)
+          @if($k == 0)
+          <div class="form-group mt-4">
+            @else
+            <div class="form-group mt-2">
+              @endif
+              <label class="form-check-label">{{ $type }}</label>
+              <label class="main float-right">
+                <input type="checkbox" class="form-check-input check-input ml-0 text-right" id="birdy-chk" value="{{ $k }}" name="type[]" @if(!empty(request()->all()['type']) && in_array($k, request()->all()['type'])) checked @endif>
+                <span class="geekmark"></span>
+              </label>
+            </div>
+            @endforeach
+          </div>
+          <button id="btn-show-result" class="closeFilter" type="submit"><span class="text-primary">{{ trans('frontend.store.show_results') }} <i class="fa fa-chevron-right" aria-hidden="true"></i></span></button>
+    </form>
+  </div>
+
+</div>
+
+</div>

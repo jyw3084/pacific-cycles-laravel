@@ -1,0 +1,285 @@
+/* header section start */
+.header_section {
+    background-image: url('../images/bg_images/header_1.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.header_section .header_cover {
+    background: rgba(0, 0, 0, 0.0);
+    padding: 225px 0 95px;
+    color: #fff;
+    z-index: 9;
+    min-height: 100vh;
+    position: relative;
+}
+.header_section .header_cover h2 {
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 50px;
+    line-height: 80px;
+    margin-bottom: 35px;
+}
+.header_section .header_cover p {
+    font-weight: 500;
+    font-size: 12px;
+    color: #fff;
+}
+@media screen and (max-width: 768px) {
+    .header_section .header_cover h2 {
+        line-height: 46px;
+        font-size: 32px;
+        margin-bottom: 25px;
+    }
+    .header_section .header_cover {
+        padding: 125px 0 65px;
+        text-align: center;
+        min-height: 80vh;
+    }
+}
+/* header section end */
+
+
+
+/* header card start */
+.header_card {
+    background: #fff;
+    padding: 15px 0;
+}
+.header_card .card_box {
+    position: relative;
+    margin: 10px 0;
+}
+.header_card .card_box img {
+    object-fit: cover;
+    width: 100%;
+    min-height: 320px;
+}
+.header_card .card_cover {
+    background: rgba(0,0,0,.2);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top : 0;
+    display: flex;
+    padding: 8%;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+.header_card .card_cover .article {width: 100%;}
+.header_card .article form {
+    margin: 35px 0 15px;
+    width: 100%;
+}
+.header_card .article form input {
+    background: rgba(255, 255, 255, .5);
+    line-height: 50px;
+    padding: 0 20px;
+    width: 100%;
+    height: 50px;
+    border: none;
+    outline: none;
+    border-radius: 15px;
+}
+
+.header_card .card_cover h4 {
+    font-weight: 500;
+    font-size: 40px;
+    color: #fff;
+    line-height: 50px;
+}
+.header_card .btn_group {
+    text-align: right;
+    width: 100%;
+}
+@media screen and (max-width: 768px) {
+    .header_card .article form input {height: 40px;}
+    .header_card .card_cover h4 {font-size: 22px;}
+    .header_card .article form {margin: 15px 0;}
+}
+/* header card end */
+
+
+
+/* feature section start */
+.feature_section {
+    background: #fff;
+    padding: 95px 0 0;
+}
+.feature_section .product_div {margin-bottom: 95px;}
+.feature_section .product_title h6 {
+    text-transform: uppercase;
+    font-size: 12px;
+    color: #F99B0C;
+    margin: 0;
+    line-height: 20px;
+}
+.feature_section .product_title h3 {
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #000000;
+    font-size: 24px;
+    margin: 15px 0;
+}
+.feature_section .product_title p {
+    line-height: 20px;
+    font-size: 14px;
+    margin: 0;
+    color: #000000;
+}
+/* feature section end */
+
+
+
+/* where section start */
+.where_section {
+    background-image: url('../images/bg_images/bg_4.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 900px;
+    padding: 95px 0;
+}
+.where_section h3 {
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    font-weight: 500;
+    color: #fff;
+    font-size: 50px;
+    line-height: 80px;
+}
+.where_section p {
+    font-weight: 500;
+    color: #fff;
+    font-size: 12px;
+    max-width: 515px;
+}
+@media screen and (max-width: 768px) {
+    .where_section {text-align: center;}
+    .where_section h3 {
+        line-height: 46px;
+        font-size: 32px;
+    }
+}
+/* where section end */
+
+
+
+/* news section end */
+.news_section {
+    padding: 95px 0 65px;
+    background: #fff;
+}
+.news_section .news_box {margin-bottom: 30px;}
+.news_section .news_article h6 {
+    text-transform: uppercase;
+    color: #F99B0C;
+    font-size: 12px;
+    font-weight: 600;
+}
+.news_section .news_article h3 {
+    font-weight: 600;
+    color: #000;
+    font-size: 24px;
+    margin-bottom: 25px;
+}
+.news_section .news_article p {
+    font-size: 14px;
+    color: #000;
+}
+.news_section .news_article a {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 14px;
+    color: #F99B0C;
+}
+.news_section .news_article a i {
+    margin: -2px 0 0 5px;
+    font-size: 17px;
+    vertical-align: middle;
+}
+/* news section end */
+
+
+
+/* events section end */
+.events_section {
+    background: #fff;
+    padding: 95px 0;
+}
+.events_section .events_box {
+    position: relative;
+    margin-bottom: 30px;
+}
+.events_section .events_cover {
+    background: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 5%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+.events_section .events_cover .article {width: 100%;}
+.events_section .events_cover .article h6 {
+    text-transform: uppercase;
+    color: #F99B0C;
+    font-size: 12px;
+    font-weight: 600;
+}
+.events_section .events_cover .article h3 {
+    font-weight: 600;
+    color: #fff;
+    font-size: 24px;
+}
+.events_section .events_cover .btn_group {
+    text-align: right;
+    width: 100%;
+}
+.events_section .events_cover .btn_group a {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 14px;
+    color: #F99B0C;
+}
+.events_section .events_cover .btn_group a i {
+    margin: -2px 0 0 5px;
+    font-size: 17px;
+    vertical-align: middle;
+}
+/* events section end */
+
+
+
+/* about section start */
+.about_section {
+    background-image: url('../images/bg_images/bg_5.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    min-height: 900px;
+    padding: 95px 0;
+    background-color: #FBFCFE;
+}
+.about_section h3 {
+    line-height: 80px;
+    font-size: 50px;
+    color: #000;
+    margin-bottom: 25px; 
+}
+.about_section p {
+    max-width: 515px;
+    font-size: 12px;
+    font-weight: 500;
+}
+@media screen and (max-width: 768px) {
+    .about_section .article {text-align: center;}
+    .about_section h3 {
+        line-height: 46px;
+        font-size: 32px;
+    }
+}
+/* about section end */
